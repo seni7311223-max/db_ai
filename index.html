@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>대한민국 인공지능(AI) 종합 보고서</title>
+  <meta name="description" content="AI 시대의 산업 성장, 노동 변화와 프라이버시 대응 시각화 페이지" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400..800&display=swap" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: "Pretendard";
+      src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --font-ko: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
+      --font-en: "Google Sans Flex", "Google Sans", "Roboto Flex", Arial, sans-serif;
+      --krds-primary: #003675;
+      --krds-primary-strong: #002b5f;
+      --krds-primary-soft: #e8f1ff;
+      --krds-secondary: #246beb;
+      --krds-text: #1d1d1d;
+      --krds-text-subtle: #555555;
+      --krds-border: #cdd1d5;
+      --krds-border-light: #dfe3e8;
+      --krds-bg: #f7f8fa;
+      --krds-surface: #ffffff;
+      --krds-success: #008a1e;
+      --krds-danger: #d50136;
+      --krds-danger-soft: #fff7f7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--krds-bg);
+      color: var(--krds-text);
+      font-family: var(--font-ko);
+      letter-spacing: -0.015em;
+      word-break: keep-all;
+    }
+
+    [lang="en"],
+    .font-en {
+      font-family: var(--font-en);
+      letter-spacing: 0;
+    }
+
+    [lang="ko"],
+    .font-ko {
+      font-family: var(--font-ko);
+      letter-spacing: -0.015em;
+      word-break: keep-all;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .page-header {
+      border-bottom: 1px solid var(--krds-border);
+      background: var(--krds-surface);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon,
+    .topic-icon,
+    .section-icon,
+    .stat-icon,
+    .flow-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--krds-primary);
+      color: #ffffff;
+    }
+
+    .brand-title {
+      margin: 0;
+      color: var(--krds-primary);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .brand-subtitle {
+      margin: 3px 0 0;
+      color: var(--krds-text-subtle);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .header-badge {
+      display: none;
+      padding: 8px 16px;
+      border: 1px solid var(--krds-border);
+      border-radius: 999px;
+      background: var(--krds-bg);
+      color: var(--krds-text-subtle);
+      font-size: 14px;
+    }
+
+    .hero {
+      border-bottom: 1px solid var(--krds-border-light);
+      background: linear-gradient(180deg, #ffffff 0%, var(--krds-primary-soft) 100%);
+      padding: 56px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .eyebrow-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding: 8px 16px;
+      border: 1px solid #b8c8e8;
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--krds-primary);
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .hero-title {
+      max-width: 900px;
+      margin: 0;
+      color: var(--krds-text);
+      font-size: 40px;
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+      font-weight: 900;
+    }
+
+    .hero-description {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: var(--krds-text-subtle);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .keyword-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .keyword {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 8px 16px;
+      border: 1px solid var(--krds-border);
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--krds-primary);
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .overview-card,
+    .panel,
+    .topic-panel,
+    .content-card,
+    .conclusion-card {
+      border: 1px solid var(--krds-border);
+      border-radius: 28px;
+      background: var(--krds-surface);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    }
+
+    .overview-card {
+      padding: 24px;
+      box-shadow: 0 16px 36px rgba(0, 54, 117, 0.12);
+    }
+
+    .overview-head,
+    .section-head,
+    .topic-card-head,
+    .flow-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .section-head {
+      align-items: flex-end;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--krds-primary);
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .eyebrow.secondary {
+      color: var(--krds-secondary);
+    }
+
+    .overview-title,
+    .section-title,
+    .topic-title,
+    .flow-title {
+      margin: 6px 0 0;
+      color: var(--krds-text);
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .overview-title {
+      font-size: 24px;
+    }
+
+    .section-title {
+      font-size: 30px;
+    }
+
+    .section-description {
+      max-width: 760px;
+      margin: 12px 0 0;
+      color: var(--krds-text-subtle);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .stat-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .stat-item {
+      display: flex;
+      gap: 16px;
+      padding: 16px;
+      border: 1px solid var(--krds-border-light);
+      border-radius: 18px;
+      background: var(--krds-bg);
+    }
+
+    .stat-icon,
+    .section-icon,
+    .flow-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--krds-primary-soft);
+      color: var(--krds-primary);
+    }
+
+    .stat-label {
+      margin: 0;
+      color: var(--krds-text-subtle);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .stat-value {
+      margin: 5px 0 0;
+      color: var(--krds-text);
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .stat-description {
+      margin: 4px 0 0;
+      color: var(--krds-text-subtle);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .section-block {
+      padding: 56px 0 0;
+    }
+
+    .topics-layout {
+      display: grid;
+      gap: 24px;
+    }
+
+    .topic-panel,
+    .content-card,
+    .panel {
+      padding: 24px;
+    }
+
+    .topic-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .topic-button {
+      width: 100%;
+      padding: 16px;
+      border: 1px solid var(--krds-border-light);
+      border-radius: 18px;
+      background: #ffffff;
+      text-align: left;
+      transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .topic-button:hover {
+      border-color: var(--krds-secondary);
+      background: #f7fbff;
+    }
+
+    .topic-button:focus-visible,
+    .search-input:focus-visible {
+      outline: 3px solid var(--krds-secondary);
+      outline-offset: 3px;
+    }
+
+    .topic-button.is-active {
+      border-color: var(--krds-primary);
+      background: var(--krds-primary-soft);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .topic-button-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .topic-button-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .topic-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--krds-bg);
+      color: var(--krds-primary);
+    }
+
+    .topic-button.is-active .topic-icon {
+      background: var(--krds-primary);
+      color: #ffffff;
+    }
+
+    .topic-label {
+      margin: 0;
+      color: var(--krds-text);
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .topic-tag {
+      margin: 4px 0 0;
+      color: var(--krds-text-subtle);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .chevron {
+      color: var(--krds-primary);
+      transition: transform 0.2s ease;
+    }
+
+    .topic-button.is-active .chevron {
+      transform: rotate(90deg);
+    }
+
+    .content-card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--krds-border-light);
+    }
+
+    .content-summary {
+      margin: 16px 0 0;
+      max-width: 760px;
+      color: var(--krds-text-subtle);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .active-icon {
+      display: none;
+      width: 56px;
+      height: 56px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      background: var(--krds-primary);
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .highlight-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .highlight-card {
+      padding: 20px;
+      border: 1px solid var(--krds-border-light);
+      border-radius: 18px;
+      background: var(--krds-bg);
+    }
+
+    .point-label {
+      margin: 0;
+      color: var(--krds-secondary);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .highlight-text {
+      margin: 10px 0 0;
+      color: var(--krds-text);
+      line-height: 1.75;
+    }
+
+    .policy-table {
+      overflow: hidden;
+      border: 1px solid var(--krds-border);
+      border-radius: 18px;
+    }
+
+    .policy-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--krds-border-light);
+    }
+
+    .policy-row:first-child {
+      border-top: 0;
+    }
+
+    .policy-head {
+      background: var(--krds-primary);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .policy-cell {
+      padding: 16px;
+      line-height: 1.75;
+    }
+
+    .policy-body:nth-child(odd) {
+      background: var(--krds-bg);
+    }
+
+    .policy-field {
+      color: var(--krds-primary);
+      font-weight: 900;
+    }
+
+    .policy-problem {
+      color: var(--krds-text-subtle);
+    }
+
+    .policy-solution {
+      color: var(--krds-text);
+    }
+
+    .dual-layout {
+      display: grid;
+      gap: 24px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding: 12px 16px;
+      border: 1px solid var(--krds-border);
+      border-radius: 18px;
+      background: var(--krds-bg);
+    }
+
+    .search-box:focus-within {
+      border-color: var(--krds-secondary);
+      box-shadow: 0 0 0 4px var(--krds-primary-soft);
+    }
+
+    .search-input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--krds-text);
+      font-size: 14px;
+    }
+
+    .search-input::placeholder {
+      color: #777777;
+    }
+
+    .risk-list,
+    .flow-list,
+    .recommendation-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .risk-item {
+      display: flex;
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid var(--krds-border-light);
+      border-radius: 18px;
+      background: var(--krds-danger-soft);
+    }
+
+    .risk-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: var(--krds-danger);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .risk-text {
+      margin: 0;
+      color: var(--krds-text);
+      line-height: 1.75;
+    }
+
+    .flow-item {
+      padding: 20px;
+      border: 1px solid var(--krds-border-light);
+      border-radius: 18px;
+      background: var(--krds-bg);
+    }
+
+    .flow-meta {
+      margin: 0;
+      color: var(--krds-secondary);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .flow-name {
+      margin: 4px 0 0;
+      color: var(--krds-text);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .action-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .action-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 12px;
+      border: 1px solid var(--krds-border);
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--krds-primary);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .conclusion-wrap {
+      padding-bottom: 80px;
+    }
+
+    .conclusion-card {
+      display: grid;
+      gap: 32px;
+      padding: 32px;
+      background: var(--krds-primary);
+      color: #ffffff;
+    }
+
+    .conclusion-card .eyebrow {
+      color: #b8d4ff;
+    }
+
+    .conclusion-title {
+      margin: 8px 0 0;
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1.3;
+    }
+
+    .conclusion-description {
+      margin: 16px 0 0;
+      color: var(--krds-primary-soft);
+      line-height: 1.8;
+    }
+
+    .recommendation-card {
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .recommendation-card svg {
+      margin-bottom: 12px;
+      color: #b8d4ff;
+    }
+
+    .recommendation-card p {
+      margin: 0;
+      color: #ffffff;
+      line-height: 1.75;
+    }
+
+    .icon-stroke {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .icon-md {
+      width: 24px;
+      height: 24px;
+    }
+
+    .icon-lg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (min-width: 640px) {
+      .header-badge {
+        display: block;
+      }
+
+      .highlight-grid,
+      .recommendation-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .active-icon {
+        display: flex;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .policy-row {
+        grid-template-columns: 0.7fr 1fr 1.4fr;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        padding: 0 40px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+
+      .topics-layout {
+        grid-template-columns: 0.8fr 1.2fr;
+      }
+
+      .dual-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .conclusion-card {
+        grid-template-columns: 0.8fr 1.2fr;
+        align-items: center;
+      }
+
+      .hero-title {
+        font-size: 56px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <svg class="icon-stroke" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M16 13H8"></path><path d="M16 17H8"></path><path d="M10 9H8"></path></svg>
+        </div>
+        <div>
+          <p class="brand-title" lang="ko">공공형 데이터 리포트</p>
+          <p class="brand-subtitle font-en" lang="en">KRDS Visual Dashboard</p>
+        </div>
+      </div>
+      <div class="header-badge">
+        <span class="font-en" lang="en">AI Report</span><span lang="ko"> · 시각화 페이지</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow-badge">
+            <svg class="icon-stroke" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v1H8a3 3 0 0 0-3 3v2H4a2 2 0 0 0 0 4h1v2a3 3 0 0 0 3 3h1v1a3 3 0 0 0 6 0v-1h1a3 3 0 0 0 3-3v-2h1a2 2 0 0 0 0-4h-1V9a3 3 0 0 0-3-3h-1V5a3 3 0 0 0-3-3z"></path><path d="M9 12h6"></path></svg>
+            <span lang="ko">대한민국 인공지능(<span class="font-en" lang="en">AI</span>) 종합 보고서</span>
+          </div>
+          <h1 class="hero-title" lang="ko"><span class="font-en" lang="en">AI</span> 시대의 산업 성장, 노동 변화와 프라이버시 대응</h1>
+          <p class="hero-description" lang="ko">보고서의 핵심 내용을 산업 현황, 노동시장 영향, 프라이버시 리스크라는 세 축으로 정리하고, 정책 대응 방향과 안전조치 흐름을 웹페이지 형태로 시각화했습니다.</p>
+          <div class="keyword-list" aria-label="핵심 키워드">
+            <span class="keyword" lang="ko">산업 현황</span>
+            <span class="keyword" lang="ko">노동시장</span>
+            <span class="keyword" lang="ko">프라이버시</span>
+            <span class="keyword" lang="ko">정책 방향</span>
+          </div>
+        </div>
+
+        <aside class="overview-card" aria-labelledby="overview-title">
+          <div class="overview-head">
+            <div>
+              <p class="eyebrow secondary font-en" lang="en">Overview</p>
+              <h2 id="overview-title" class="overview-title" lang="ko">핵심 요약</h2>
+            </div>
+            <svg class="icon-stroke icon-lg" viewBox="0 0 24 24" aria-hidden="true" style="color: var(--krds-success)"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+          </div>
+          <div class="stat-list">
+            <article class="stat-item">
+              <div class="stat-icon" aria-hidden="true"><svg class="icon-stroke" viewBox="0 0 24 24"><path d="M12 3v18"></path><path d="M5 8h14"></path><path d="M5 16h14"></path><path d="M3 12h18"></path></svg></div>
+              <div><p class="stat-label" lang="ko">3대 분석 축</p><h3 class="stat-value" lang="ko">산업 · 노동 · 프라이버시</h3><p class="stat-description" lang="ko"><span class="font-en" lang="en">AI</span> 시대의 기회와 위험을 입체적으로 분석</p></div>
+            </article>
+            <article class="stat-item">
+              <div class="stat-icon" aria-hidden="true"><svg class="icon-stroke" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></div>
+              <div><p class="stat-label" lang="ko">핵심 리스크</p><h3 class="stat-value" lang="ko">7가지</h3><p class="stat-description" lang="ko">데이터 수집부터 자동화 결정까지 주요 위험 유형 정리</p></div>
+            </article>
+            <article class="stat-item">
+              <div class="stat-icon" aria-hidden="true"><svg class="icon-stroke" viewBox="0 0 24 24"><path d="M10 6V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1"></path><rect x="3" y="6" width="18" height="14" rx="2"></rect><path d="M3 12h18"></path></svg></div>
+              <div><p class="stat-label" lang="ko">정책 방향</p><h3 class="stat-value" lang="ko">4대 분야</h3><p class="stat-description" lang="ko">혁신, 노동 제도, 교육·훈련, 청년 일자리 중심 대응</p></div>
+            </article>
+            <article class="stat-item">
+              <div class="stat-icon" aria-hidden="true"><svg class="icon-stroke" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></div>
+              <div><p class="stat-label" lang="ko">최종 목표</p><h3 class="stat-value" lang="ko">신뢰 가능한 <span class="font-en" lang="en">AI</span></h3><p class="stat-description" lang="ko">혁신과 개인정보 보호가 공존하는 생태계 구축</p></div>
+            </article>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="container topics-layout">
+        <aside class="topic-panel" aria-labelledby="topics-title">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow font-en" lang="en">Topics</p>
+              <h2 id="topics-title" class="section-title" lang="ko">핵심 분석 영역</h2>
+            </div>
+            <div class="section-icon" aria-hidden="true"><svg class="icon-stroke icon-md" viewBox="0 0 24 24"><path d="M12 3v18"></path><path d="M5 8h14"></path><path d="M5 16h14"></path><path d="M3 12h18"></path></svg></div>
+          </div>
+          <div class="topic-list" role="tablist" aria-label="핵심 분석 영역">
+            <button class="topic-button is-active" type="button" role="tab" aria-selected="true" data-topic="industry">
+              <span class="topic-button-inner">
+                <span class="topic-button-main"><span class="topic-icon" aria-hidden="true"><svg class="icon-stroke" viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V7l8-4v18"></path><path d="M19 21V11l-6-4"></path><path d="M9 9h1"></path><path d="M9 13h1"></path><path d="M9 17h1"></path></svg></span><span><span class="topic-label" lang="ko"><span class="font-en" lang="en">AI</span> 산업 실태</span><span class="topic-tag font-en" lang="en">Industry Status</span></span></span>
+                <svg class="icon-stroke chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+              </span>
+            </button>
+            <button class="topic-button" type="button" role="tab" aria-selected="false" data-topic="labor">
+              <span class="topic-button-inner">
+                <span class="topic-button-main"><span class="topic-icon" aria-hidden="true"><svg class="icon-stroke" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span><span><span class="topic-label" lang="ko">노동시장 영향</span><span class="topic-tag font-en" lang="en">Labor Impact</span></span></span>
+                <svg class="icon-stroke chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+              </span>
+            </button>
+            <button class="topic-button" type="button" role="tab" aria-selected="false" data-topic="privacy">
+              <span class="topic-button-inner">
+                <span class="topic-button-main"><span class="topic-icon" aria-hidden="true"><svg class="icon-stroke" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></span><span><span class="topic-label" lang="ko">프라이버시 대응</span><span class="topic-tag font-en" lang="en">Privacy Response</span></span></span>
+                <svg class="icon-stroke chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+              </span>
+            </button>
+          </div>
+        </aside>
+
+        <article class="content-card" id="topic-card">
+          <div class="content-card-head">
+            <div>
+              <p class="eyebrow secondary font-en" id="topic-tag" lang="en">Industry Status</p>
+              <h2 class="section-title" id="topic-title" lang="ko"><span class="font-en" lang="en">AI</span> 산업 실태</h2>
+              <p class="content-summary" id="topic-summary" lang="ko">대한민국 <span class="font-en" lang="en">AI</span> 산업은 소프트웨어, 서비스 융합, 초거대 언어모델 기반 <span class="font-en" lang="en">B2B</span> 솔루션을 중심으로 성장하고 있습니다.</p>
+            </div>
+            <div class="active-icon" id="topic-icon" aria-hidden="true"><svg class="icon-stroke icon-lg" viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V7l8-4v18"></path><path d="M19 21V11l-6-4"></path><path d="M9 9h1"></path><path d="M9 13h1"></path><path d="M9 17h1"></path></svg></div>
+          </div>
+          <div class="highlight-grid" id="highlight-grid"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="container">
+        <div class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow font-en" lang="en">Policy Matrix</p>
+              <h2 class="section-title" lang="ko">4대 정책 방향</h2>
+              <p class="section-description" lang="ko"><span class="font-en" lang="en">AI</span> 전환 과정에서 필요한 제도적 대응을 문제와 해결책으로 정리했습니다.</p>
+            </div>
+            <div class="section-icon" aria-hidden="true"><svg class="icon-stroke icon-md" viewBox="0 0 24 24"><path d="m22 10-10-5-10 5 10 5 10-5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></div>
+          </div>
+          <div class="policy-table">
+            <div class="policy-row policy-head">
+              <div class="policy-cell" lang="ko">분야</div>
+              <div class="policy-cell" lang="ko">주요 문제</div>
+              <div class="policy-cell" lang="ko">핵심 대응</div>
+            </div>
+            <div class="policy-row policy-body"><div class="policy-cell policy-field" lang="ko">혁신 지원</div><div class="policy-cell policy-problem" lang="ko">중소기업의 <span class="font-en" lang="en">AI</span> 전환 지연과 디지털 격차</div><div class="policy-cell policy-solution" lang="ko"><span class="font-en" lang="en">AI</span> 솔루션 도입 보조금, 맞춤형 컨설팅, 공공 컴퓨팅 인프라 바우처 확대</div></div>
+            <div class="policy-row policy-body"><div class="policy-cell policy-field" lang="ko">노동 제도</div><div class="policy-cell policy-problem" lang="ko">직무 변화에 따른 고용 불안정성과 격차 발생</div><div class="policy-cell policy-solution" lang="ko">사회안전망 사각지대 해소, 이직·전직 지원 서비스 고도화</div></div>
+            <div class="policy-row policy-body"><div class="policy-cell policy-field" lang="ko">교육·훈련</div><div class="policy-cell policy-problem" lang="ko">주입식 교육 체계와 실무 역량 간 미스매치</div><div class="policy-cell policy-solution" lang="ko">창의력·비판적 사고 교육, 성인 디지털 리터러시 및 평생학습 강화</div></div>
+            <div class="policy-row policy-body"><div class="policy-cell policy-field" lang="ko">청년 일자리</div><div class="policy-cell policy-problem" lang="ko">신규 채용 축소 우려와 경력직 선호 현상</div><div class="policy-cell policy-solution" lang="ko">인턴십·일경험 기회 확대, 스타트업 창업 지원, 취업 멘토링 강화</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="container dual-layout">
+        <div class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow font-en" lang="en">Risk Map</p>
+              <h2 class="section-title" lang="ko"><span class="font-en" lang="en">AI</span> 프라이버시 7대 리스크</h2>
+            </div>
+            <div class="section-icon" aria-hidden="true"><svg class="icon-stroke icon-md" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></div>
+          </div>
+          <label class="search-box" for="risk-search">
+            <svg class="icon-stroke" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+            <input class="search-input" id="risk-search" type="search" placeholder="리스크 키워드 검색" />
+          </label>
+          <div class="risk-list" id="risk-list"></div>
+        </div>
+
+        <div class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow font-en" lang="en">Safety Flow</p>
+              <h2 class="section-title" lang="ko"><span class="font-en" lang="en">AI</span> 데이터 안전조치 흐름</h2>
+              <p class="section-description" lang="ko">데이터 활용 단계별로 필요한 관리적·기술적 조치를 배치했습니다.</p>
+            </div>
+            <div class="section-icon" aria-hidden="true"><svg class="icon-stroke icon-md" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+          </div>
+          <div class="flow-list">
+            <article class="flow-item"><div class="flow-head"><div class="flow-icon" aria-hidden="true"><svg class="icon-stroke icon-md" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"></path></svg></div><div><p class="flow-meta font-en" lang="en">Step 1 · Collect &amp; Train</p><h3 class="flow-name" lang="ko">데이터 수집·학습</h3></div></div><div class="action-list"><span class="action-chip" lang="ko">출처 이력 관리</span><span class="action-chip" lang="ko">동의·라이선스 확인</span><span class="action-chip" lang="ko">안전한 보관·파기</span></div></article>
+            <article class="flow-item"><div class="flow-head"><div class="flow-icon" aria-hidden="true"><svg class="icon-stroke icon-md" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><path d="M9 1v3"></path><path d="M15 1v3"></path><path d="M9 20v3"></path><path d="M15 20v3"></path><path d="M20 9h3"></path><path d="M20 14h3"></path><path d="M1 9h3"></path><path d="M1 14h3"></path></svg></div><div><p class="flow-meta font-en" lang="en">Step 2 · Develop &amp; Validate</p><h3 class="flow-name" lang="ko">모델 개발·검증</h3></div></div><div class="action-list"><span class="action-chip" lang="ko">차분 프라이버시</span><span class="action-chip" lang="ko">합성 데이터 활용</span><span class="action-chip" lang="ko">레드팀 테스트</span></div></article>
+            <article class="flow-item"><div class="flow-head"><div class="flow-icon" aria-hidden="true"><svg class="icon-stroke icon-md" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div><div><p class="flow-meta font-en" lang="en">Step 3 · Deploy &amp; Operate</p><h3 class="flow-name" lang="ko">서비스 운영·배포</h3></div></div><div class="action-list"><span class="action-chip" lang="ko">출력 필터링</span><span class="action-chip" lang="ko">정보주체 권리 보장</span><span class="action-chip" lang="ko">합성콘텐츠 표기</span></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block conclusion-wrap">
+      <div class="container">
+        <div class="conclusion-card">
+          <div>
+            <p class="eyebrow font-en" lang="en">Conclusion</p>
+            <h2 class="conclusion-title" lang="ko">혁신과 신뢰의 선순환 <span class="font-en" lang="en">AI</span> 생태계</h2>
+            <p class="conclusion-description" lang="ko"><span class="font-en" lang="en">AI</span>는 생산성을 극대화하는 게임 체인저이지만, 노동시장 충격과 개인정보 침해라는 양면적 리스크를 함께 가집니다. 따라서 기술 혁신과 사회적 신뢰를 동시에 설계하는 접근이 필요합니다.</p>
+          </div>
+          <div class="recommendation-grid">
+            <article class="recommendation-card"><svg class="icon-stroke" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 7-8.5 8.5-5-5L2 17"></path><path d="M16 7h6v6"></path></svg><p lang="ko">기업 주도형 자율 리스크 관리 체계 정착</p></article>
+            <article class="recommendation-card"><svg class="icon-stroke" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 7-8.5 8.5-5-5L2 17"></path><path d="M16 7h6v6"></path></svg><p lang="ko">고용 전환기에 대응하는 선제적 사회안전망 강화</p></article>
+            <article class="recommendation-card"><svg class="icon-stroke" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 7-8.5 8.5-5-5L2 17"></path><path d="M16 7h6v6"></path></svg><p lang="ko"><span class="font-en" lang="en">AI</span> 인재 양성과 디지털 리터러시 교육 확대</p></article>
+            <article class="recommendation-card"><svg class="icon-stroke" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 7-8.5 8.5-5-5L2 17"></path><path d="M16 7h6v6"></path></svg><p lang="ko">데이터 주권과 프라이버시 보호를 전제로 한 산업 혁신 촉진</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const topicData = {
+      industry: {
+        tag: "Industry Status",
+        title: '<span class="font-en" lang="en">AI</span> 산업 실태',
+        summary: '대한민국 <span class="font-en" lang="en">AI</span> 산업은 소프트웨어, 서비스 융합, 초거대 언어모델 기반 <span class="font-en" lang="en">B2B</span> 솔루션을 중심으로 성장하고 있습니다.',
+        icon: '<svg class="icon-stroke icon-lg" viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V7l8-4v18"></path><path d="M19 21V11l-6-4"></path><path d="M9 9h1"></path><path d="M9 13h1"></path><path d="M9 17h1"></path></svg>',
+        highlights: [
+          '<span class="font-en" lang="en">AI</span> 소프트웨어 개발 및 공급 중심의 시장 확대',
+          '제조·금융·의료 등 산업 간 융합 가속화',
+          '대기업·중견기업과 스타트업 간 매출 양극화',
+          '<span class="font-en" lang="en">GPU</span> 인프라·고품질 데이터 확보 비용 부담'
+        ]
+      },
+      labor: {
+        tag: "Labor Impact",
+        title: '노동시장 영향',
+        summary: '<span class="font-en" lang="en">AI</span>는 인간 노동을 대체하는 동시에 보완하며, 직무 내용과 고용 구조를 점진적으로 변화시키고 있습니다.',
+        icon: '<svg class="icon-stroke icon-lg" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>',
+        highlights: [
+          '고숙련·전문직·사무직까지 영향권 확대',
+          '단기 대량 실업보다 업무 재편이 선행',
+          '생산성 향상과 일자리 대체 리스크 공존',
+          '청년층·고령층·정형 사무직의 전환 지원 필요'
+        ]
+      },
+      privacy: {
+        tag: "Privacy Response",
+        title: '프라이버시 대응',
+        summary: '안전한 <span class="font-en" lang="en">AI</span> 활용을 위해 데이터 수집, 학습, 배포 전 과정에서 프라이버시 리스크 관리 체계가 필요합니다.',
+        icon: '<svg class="icon-stroke icon-lg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>',
+        highlights: [
+          '학습데이터 수집·보관·관리의 적법성 확보',
+          '프롬프트 공격과 개인정보 유출 방지',
+          '딥페이크·자동화된 결정에 따른 권리 침해 대응',
+          '<span class="font-en" lang="en">AI</span> 가치망 내 주체별 책임 명확화'
+        ]
+      }
+    };
+
+    const privacyRisks = [
+      '부적법한 학습데이터 수집·이용',
+      '학습데이터의 부적절한 보관·관리',
+      '<span class="font-en" lang="en">AI</span> 가치망 내 책임 복잡화',
+      '학습데이터 암기 및 개인정보 유·노출',
+      '<span class="font-en" lang="en">AI</span> 합성콘텐츠로 인한 권리 침해',
+      '자동화된 결정으로 인한 정보주체 권리 약화',
+      '대중감시 및 민감정보 추론 위협'
+    ];
+
+    const topicButtons = document.querySelectorAll(".topic-button");
+    const topicTag = document.getElementById("topic-tag");
+    const topicTitle = document.getElementById("topic-title");
+    const topicSummary = document.getElementById("topic-summary");
+    const topicIcon = document.getElementById("topic-icon");
+    const highlightGrid = document.getElementById("highlight-grid");
+    const riskList = document.getElementById("risk-list");
+    const riskSearch = document.getElementById("risk-search");
+
+    function renderTopic(topicKey) {
+      const topic = topicData[topicKey];
+      topicTag.textContent = topic.tag;
+      topicTitle.innerHTML = topic.title;
+      topicSummary.innerHTML = topic.summary;
+      topicIcon.innerHTML = topic.icon;
+      highlightGrid.innerHTML = topic.highlights.map(function(item, index) {
+        return '<article class="highlight-card"><p class="point-label font-en" lang="en">Point ' + (index + 1) + '</p><p class="highlight-text" lang="ko">' + item + '</p></article>';
+      }).join("");
+    }
+
+    function renderRisks(keyword) {
+      const normalized = (keyword || "").trim().toLowerCase();
+      const filtered = privacyRisks.filter(function(item) {
+        const plain = item.replaceAll('<span class="font-en" lang="en">', '').replaceAll('</span>', '');
+        return !normalized || plain.toLowerCase().includes(normalized);
+      });
+
+      riskList.innerHTML = filtered.map(function(item, index) {
+        return '<article class="risk-item"><span class="risk-number font-en" lang="en">' + (index + 1) + '</span><p class="risk-text" lang="ko">' + item + '</p></article>';
+      }).join("");
+    }
+
+    topicButtons.forEach(function(button) {
+      button.addEventListener("click", function() {
+        topicButtons.forEach(function(item) {
+          item.classList.remove("is-active");
+          item.setAttribute("aria-selected", "false");
+        });
+        button.classList.add("is-active");
+        button.setAttribute("aria-selected", "true");
+        renderTopic(button.dataset.topic);
+      });
+    });
+
+    riskSearch.addEventListener("input", function(event) {
+      renderRisks(event.target.value);
+    });
+
+    renderTopic("industry");
+    renderRisks("");
+  </script>
+</body>
+</html>
